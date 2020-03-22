@@ -50,4 +50,10 @@
     <Content Remove="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
     <Content Remove="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="EmptyCSharpFile.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Shared\PartialViews\" />
+  </ItemGroup>
 </Project>
