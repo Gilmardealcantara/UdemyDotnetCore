@@ -1,4 +1,4 @@
-﻿using System;
+﻿using ITDeveloper.Domain.Entitites;
 using Microsoft.EntityFrameworkCore;
 
 namespace ITDeveloper.Data.ORM
@@ -7,7 +7,8 @@ namespace ITDeveloper.Data.ORM
     {
         public ITDeveloperDbContext(DbContextOptions<ITDeveloperDbContext> options)
             :base(options)
-        {
-        }
+        {}
+
+        public DbSet<Mural> Murals { get; set; }
     }
 }

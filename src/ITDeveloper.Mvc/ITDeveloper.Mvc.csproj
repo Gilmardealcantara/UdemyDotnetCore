@@ -58,4 +58,9 @@
   <ItemGroup>
     <Folder Include="Views\Shared\PartialViews\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ITDeveloper.Data\ITDeveloper.Data.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
