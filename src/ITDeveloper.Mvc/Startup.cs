@@ -28,8 +28,10 @@ namespace ITDeveloper.Mvc
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            //services.AddDbContext<ITDeveloperDbContext>(options =>
+            //options.UseSqlServer(Configuration.GetConnectionString("DefaultITDeveloper")));
             services.AddDbContext<ITDeveloperDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultITDeveloper")));
+            options.UseSqlite(Configuration.GetConnectionString("ITDeveloperSqlite")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

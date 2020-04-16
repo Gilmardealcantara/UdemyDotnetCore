@@ -1,10 +1,9 @@
 ﻿using System;
 namespace ITDeveloper.Domain.Enums
 {
-    public class Gender
+    public enum Gender
     {
-        public Gender()
-        {
-        }
+        Female = 1,
+        Male
     }
 }
