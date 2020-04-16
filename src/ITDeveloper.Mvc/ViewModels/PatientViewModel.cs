@@ -1,14 +1,11 @@
 ﻿using System;
 using ITDeveloper.Domain.Enums;
 
-namespace ITDeveloper.Domain.Entitites
+namespace ITDeveloper.Mvc.Models
 {
-    public class Patient : EntityBase
+    public class PatientViewModels
     {
-        public Patient()
-        {
-            this.Active = true;
-        }
+        
         public string Name { get; set; }
         public DateTime BirthDate { get; set; }
         public DateTime HospitalizationDate { get; set; }
@@ -22,7 +19,7 @@ namespace ITDeveloper.Domain.Entitites
 
         public override string ToString()
         {
-            return $"{this.Id} - {this.Name}";
+            return $"{this.Name}";
         }
     }
 }
