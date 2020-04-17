@@ -1,4 +1,4 @@
-dotnet ef migrations add Initial -c ITDeveloperDbContext -v -s src/ITDeveloper.Mvc -p src/ITDeveloper.Data
+dotnet ef migrations add -c ITDeveloperDbContext -v -s src/ITDeveloper.Mvc -p src/ITDeveloper.Data Initial
 dotnet ef database update -p src/ITDeveloper.Data -s src/ITDeveloper.Mvc
 
 

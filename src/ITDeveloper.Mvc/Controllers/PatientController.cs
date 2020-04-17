@@ -54,11 +54,17 @@ namespace ITDeveloper.Mvc.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,BirthDate,HospitalizationDate,Email,Cpf,Active,type,RG,RGEmitterOrgan,EmissionDate,Id")] Patient patient)
+        public async Task<IActionResult> Create(Patient patient)
         {
             if (ModelState.IsValid)
             {
+                var states = new string[] { "Estável", "Observação", "Grave", "Crítico" };
+
                 _context.Add(patient);
+                await _context.SaveChangesAsync();
+                Random random = new Random();
+                patient.state = new PatientState { Description = states[random.Next(4)] };
+                _context.Update(patient);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -81,12 +87,9 @@ namespace ITDeveloper.Mvc.Controllers
             return View(patient);
         }
 
-        // POST: Patient/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Name,BirthDate,HospitalizationDate,Email,Cpf,Active,type,RG,RGEmitterOrgan,EmissionDate,Id")] Patient patient)
+        public async Task<IActionResult> Edit(Guid id, Patient patient)
         {
             if (id != patient.Id)
             {

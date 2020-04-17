@@ -25,10 +25,23 @@ namespace ITDeveloper.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "PatientStates",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    Description = table.Column<string>(maxLength: 20, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PatientStates", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Patients",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
+                    stateId = table.Column<Guid>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     BirthDate = table.Column<DateTime>(nullable: false),
                     HospitalizationDate = table.Column<DateTime>(nullable: false),
@@ -43,7 +56,18 @@ namespace ITDeveloper.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Patients", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Patients_PatientStates_stateId",
+                        column: x => x.stateId,
+                        principalTable: "PatientStates",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Patients_stateId",
+                table: "Patients",
+                column: "stateId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -53,6 +77,9 @@ namespace ITDeveloper.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Patients");
+
+            migrationBuilder.DropTable(
+                name: "PatientStates");
         }
     }
 }

@@ -9,6 +9,8 @@ namespace ITDeveloper.Domain.Entitites
         {
             this.Active = true;
         }
+
+        public virtual PatientState state { get; set; }
         public string Name { get; set; }
         public DateTime BirthDate { get; set; }
         public DateTime HospitalizationDate { get; set; }

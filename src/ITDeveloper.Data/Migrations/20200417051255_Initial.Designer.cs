@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ITDeveloper.Data.Migrations
 {
     [DbContext(typeof(ITDeveloperDbContext))]
-    [Migration("20200416223218_Initial")]
+    [Migration("20200417051255_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,11 +61,36 @@ namespace ITDeveloper.Data.Migrations
 
                     b.Property<string>("RGEmitterOrgan");
 
+                    b.Property<Guid?>("stateId");
+
                     b.Property<int>("type");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("stateId");
+
                     b.ToTable("Patients");
+                });
+
+            modelBuilder.Entity("ITDeveloper.Domain.Entitites.PatientState", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(20);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PatientStates");
+                });
+
+            modelBuilder.Entity("ITDeveloper.Domain.Entitites.Patient", b =>
+                {
+                    b.HasOne("ITDeveloper.Domain.Entitites.PatientState", "state")
+                        .WithMany()
+                        .HasForeignKey("stateId");
                 });
 #pragma warning restore 612, 618
         }
