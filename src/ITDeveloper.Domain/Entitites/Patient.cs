@@ -1,16 +1,18 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using ITDeveloper.Domain.Enums;
 
-namespace ITDeveloper.Domain.Entitites
-{
-    public class Patient : EntityBase
-    {
-        public Patient()
-        {
+namespace ITDeveloper.Domain.Entitites {
+    public class Patient : EntityBase {
+        public Patient() {
             this.Active = true;
         }
 
-        public virtual PatientState state { get; set; }
+        [ForeignKey(name: "PatientStates")]
+        [Display(Name = "Estado do paciente")]
+        public Guid StateId { get; set; }
+        public virtual PatientState State { get; set; }
         public string Name { get; set; }
         public DateTime BirthDate { get; set; }
         public DateTime HospitalizationDate { get; set; }
@@ -22,8 +24,7 @@ namespace ITDeveloper.Domain.Entitites
         public string RGEmitterOrgan { get; set; }
         public DateTime EmissionDate { get; set; }
 
-        public override string ToString()
-        {
+        public override string ToString() {
             return $"{this.Id} - {this.Name}";
         }
     }

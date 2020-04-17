@@ -42,7 +42,7 @@ namespace ITDeveloper.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    stateId = table.Column<Guid>(nullable: true),
+                    StateId = table.Column<Guid>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     BirthDate = table.Column<DateTime>(nullable: false),
                     HospitalizationDate = table.Column<DateTime>(nullable: false),
@@ -58,17 +58,17 @@ namespace ITDeveloper.Data.Migrations
                 {
                     table.PrimaryKey("PK_Patients", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Patients_PatientStates_stateId",
-                        column: x => x.stateId,
+                        name: "FK_Patients_PatientStates_StateId",
+                        column: x => x.StateId,
                         principalTable: "PatientStates",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Patients_stateId",
+                name: "IX_Patients_StateId",
                 table: "Patients",
-                column: "stateId");
+                column: "StateId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

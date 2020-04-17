@@ -63,13 +63,13 @@ namespace ITDeveloper.Data.Migrations
 
                     b.Property<string>("RGEmitterOrgan");
 
-                    b.Property<Guid?>("stateId");
+                    b.Property<Guid>("StateId");
 
                     b.Property<int>("type");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("stateId");
+                    b.HasIndex("StateId");
 
                     b.ToTable("Patients");
                 });
@@ -90,9 +90,10 @@ namespace ITDeveloper.Data.Migrations
 
             modelBuilder.Entity("ITDeveloper.Domain.Entitites.Patient", b =>
                 {
-                    b.HasOne("ITDeveloper.Domain.Entitites.PatientState", "state")
+                    b.HasOne("ITDeveloper.Domain.Entitites.PatientState", "State")
                         .WithMany()
-                        .HasForeignKey("stateId");
+                        .HasForeignKey("StateId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

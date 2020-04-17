@@ -42,6 +42,9 @@
                 <th>
                     @Html.DisplayNameFor(model => model.type)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.State.Description)
+                </th>
                 @*
                     <th>
                         @Html.DisplayNameFor(model => model.RG)
@@ -83,8 +86,10 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.type)
                     </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.State.Description)
+                    </td>
                     @*
-
                         <td>
                             @Html.DisplayFor(modelItem => item.RG)
                         </td>
