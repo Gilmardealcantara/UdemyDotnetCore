@@ -19,8 +19,7 @@
             <
             span class = "txt" > Welcome to Dynamic admin</ span>
             <
-            /
-            div >
+            / div >
             <
             div class = "header-stats" >
             <
@@ -31,8 +30,7 @@
             div id = "spark-visitors"
         class = "sparkline" > < / div >
             <
-            /
-            div >
+            / div >
             <
             div class = "spark clearfix" >
             <
@@ -41,8 +39,7 @@
             div id = "spark-templateviews"
         class = "sparkline" > < / div >
             <
-            /
-            div >
+            / div >
             <
             div class = "spark clearfix" >
             <
@@ -724,7 +721,7 @@
                                             <div class="
         avatar pull - left mr15 ">
                                                 <img src = "
-        ~ / img / avatars / 2. jpg " alt="
+        img / avatars / 2. jpg " alt="
         avatar ">
                                             </div>
                                             <p class="
@@ -741,7 +738,7 @@
                                             <div class="
         avatar pull - left mr15 ">
                                                 <img src = "
-        ~ / img / avatars / 3. jpg " alt="
+        img / avatars / 3. jpg " alt="
         avatar ">
                                             </div>
                                             <p class="
@@ -758,7 +755,7 @@
                                             <div class="
         avatar pull - left mr15 ">
                                                 <img src = "
-        ~ / img / avatars / 4. jpg " alt="
+        img / avatars / 4. jpg " alt="
         avatar ">
                                             </div>
                                             <p class="
@@ -775,7 +772,7 @@
                                             <div class="
         avatar pull - left mr15 ">
                                                 <img src = "
-        ~ / img / avatars / 5. jpg " alt="
+        img / avatars / 5. jpg " alt="
         avatar ">
                                             </div>
                                             <p class="
@@ -792,7 +789,7 @@
                                             <div class="
         avatar pull - left mr15 ">
                                                 <img src = "
-        ~ / img / avatars / 6. jpg " alt="
+        img / avatars / 6. jpg " alt="
         avatar ">
                                             </div>
                                             <p class="
