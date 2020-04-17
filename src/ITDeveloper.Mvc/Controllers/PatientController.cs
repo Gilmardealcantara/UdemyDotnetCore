@@ -58,7 +58,6 @@ namespace ITDeveloper.Mvc.Controllers
         {
             if (ModelState.IsValid)
             {
-                patient.Id = Guid.NewGuid();
                 _context.Add(patient);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
