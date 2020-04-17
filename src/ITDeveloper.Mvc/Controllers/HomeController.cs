@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ITDeveloper.Mvc.Models;
+using ITDeveloper.Data.ORM;
 
 namespace ITDeveloper.Mvc.Controllers
 {
@@ -12,6 +13,7 @@ namespace ITDeveloper.Mvc.Controllers
     {
         public IActionResult Index()
         {
+            //var context = new ITDeveloperDbContext(null);
             return View();
         }
 
