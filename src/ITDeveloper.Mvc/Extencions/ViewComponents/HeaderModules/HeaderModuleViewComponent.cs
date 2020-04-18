@@ -8,7 +8,7 @@ namespace ITDeveloper.Mvc.Extensions.ViewComponents.PatitentState {
     public class HeaderModuleViewComponent : ViewComponent {
         public HeaderModuleViewComponent() {}
 
-        public async Task<IViewComponentResult> InvokeAsync(string title, string subtitle) {
+        public IViewComponentResult Invoke(string title, string subtitle) {
             var model = new Modulo {
                 Title = title,
                     SubTitle = subtitle

@@ -12,8 +12,8 @@ namespace ITDeveloper.Mvc.Extensions.ViewComponents.PatitentState {
         }
 
         public async Task<IViewComponentResult> InvokeAsync() {
-            var total = Util.ToReg(_context);
-            var totalState = Util.GetRegByState(_context, "Crítico");
+            var total = await Util.ToReg(_context);
+            var totalState = await Util.GetRegByState(_context, "Crítico");
 
             var progress = (totalState * 100) / total;
             var percent = progress.ToString(format: "F1");

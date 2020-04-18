@@ -1,18 +1,19 @@
 using System.Linq;
+using System.Threading.Tasks;
 using ITDeveloper.Data.ORM;
 using Microsoft.EntityFrameworkCore;
 
 namespace ITDeveloper.Mvc.Extensions.ViewComponents.Helpers {
     public static class Util {
-        public static int ToReg(ITDeveloperDbContext cxt) {
-            return cxt.Patients.AsNoTracking().Count();
+        public static async Task<int> ToReg(ITDeveloperDbContext cxt) {
+            return await cxt.Patients.AsNoTracking().CountAsync();
         }
-        public static decimal GetRegByState(ITDeveloperDbContext cxt, string stateDesc) {
-            return cxt.Patients
+        public static async Task<decimal> GetRegByState(ITDeveloperDbContext cxt, string stateDesc) {
+            return await cxt.Patients
                 .Include(p => p.State)
                 .AsNoTracking()
                 .Where(p => p.State.Description.Contains(stateDesc))
-                .Count();
+                .CountAsync();
         }
     }
 }
