@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
 using ITDeveloper.Data.ORM;
-using ITDeveloper.Mvc.ViewComponents.Helpers;
+using ITDeveloper.Mvc.Extencions.ViewComponents.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ITDeveloper.Mvc.ViewComponents.PatitentState {
+namespace ITDeveloper.Mvc.Extencions.ViewComponents.PatitentState {
     [ViewComponent(Name = "HeaderModule")]
     public class HeaderModuleViewComponent : ViewComponent {
         public HeaderModuleViewComponent() {}
