@@ -1,11 +1,9 @@
-﻿using System;
+using System;
 using ITDeveloper.Domain.Enums;
 
-namespace ITDeveloper.Mvc.Models
-{
-    public class PatientViewModels
-    {
-        
+namespace ITDeveloper.Mvc.Models {
+    public class PatientViewModels {
+
         public string Name { get; set; }
         public DateTime BirthDate { get; set; }
         public DateTime HospitalizationDate { get; set; }
@@ -17,8 +15,7 @@ namespace ITDeveloper.Mvc.Models
         public string RGEmitterOrgan { get; set; }
         public DateTime EmissionDate { get; set; }
 
-        public override string ToString()
-        {
+        public override string ToString() {
             return $"{this.Name}";
         }
     }

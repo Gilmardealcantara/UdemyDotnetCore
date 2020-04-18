@@ -1,8 +1,6 @@
-﻿using System;
-namespace ITDeveloper.Domain.Entitites
-{
-    public class Mural
-    {
+using System;
+namespace ITDeveloper.Domain.Entitites {
+    public class Mural {
         public int Id { get; set; }
         public DateTime Date { get; set; }
         public string Tittle { get; set; }
@@ -10,8 +8,7 @@ namespace ITDeveloper.Domain.Entitites
         public string Author { get; set; }
         public string Email { get; set; }
 
-        public override string ToString()
-        {
+        public override string ToString() {
             return $"{this.Id}, t{this.Notification} - {this.Author}";
         }
     }

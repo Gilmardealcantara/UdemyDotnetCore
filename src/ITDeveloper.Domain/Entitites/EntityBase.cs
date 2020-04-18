@@ -1,11 +1,8 @@
-﻿using System;
+using System;
 
-namespace ITDeveloper.Domain.Entitites
-{
-    public class EntityBase
-    {
-        public EntityBase()
-        {
+namespace ITDeveloper.Domain.Entitites {
+    public class EntityBase {
+        public EntityBase() {
             this.Id = Guid.NewGuid();
         }
 
