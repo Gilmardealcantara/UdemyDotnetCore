@@ -5,19 +5,8 @@
     //Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<vc:header-module title="Pacientes" subtitle="Create de Pacientes"></vc:header-module>
 
-<!DOCTYPE html>
-
-<html>
-<head>
-
-    <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
-</head>
-<body>
-
-    <h4>Patient</h4>
-    <hr />
     <div class="row">
         <div class="col-md-4">
             <form asp-action="Create">
@@ -95,6 +84,3 @@
     </div>
 
     @await Html.PartialAsync("_ValidationScriptsPartial")
-
-</body>
-</html>
