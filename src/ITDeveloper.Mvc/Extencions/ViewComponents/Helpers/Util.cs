@@ -10,7 +10,6 @@ namespace ITDeveloper.Mvc.Extensions.ViewComponents.Helpers {
         }
         public static async Task<decimal> GetRegByState(ITDeveloperDbContext cxt, string stateDesc) {
             return await cxt.Patients
-                .Include(p => p.State)
                 .AsNoTracking()
                 .Where(p => p.State.Description.Contains(stateDesc))
                 .CountAsync();
