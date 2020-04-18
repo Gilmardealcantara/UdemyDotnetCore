@@ -4,14 +4,16 @@ using ITDeveloper.Data.ORM;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ITDeveloper.Data.Migrations
 {
     [DbContext(typeof(ITDeveloperDbContext))]
-    partial class ITDeveloperDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200418230720_AddMapConfig")]
+    partial class AddMapConfig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,19 +27,15 @@ namespace ITDeveloper.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Author")
-                        .HasColumnType("varchar(100)");
+                    b.Property<string>("Author");
 
                     b.Property<DateTime>("Date");
 
-                    b.Property<string>("Email")
-                        .HasColumnType("varchar(100)");
+                    b.Property<string>("Email");
 
-                    b.Property<string>("Notification")
-                        .HasColumnType("varchar(100)");
+                    b.Property<string>("Notification");
 
-                    b.Property<string>("Tittle")
-                        .HasColumnType("varchar(100)");
+                    b.Property<string>("Tittle");
 
                     b.HasKey("Id");
 
@@ -114,7 +112,8 @@ namespace ITDeveloper.Data.Migrations
                 {
                     b.HasOne("ITDeveloper.Domain.Entitites.PatientState", "State")
                         .WithMany("Patients")
-                        .HasForeignKey("StateId");
+                        .HasForeignKey("StateId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

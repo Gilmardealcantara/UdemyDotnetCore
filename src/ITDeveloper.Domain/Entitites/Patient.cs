@@ -20,8 +20,8 @@ namespace ITDeveloper.Domain.Entitites {
         public string Cpf { get; set; }
         public bool Active { get; set; }
         public PatientType type { get; set; }
-        public string RG { get; set; }
-        public string RGEmitterOrgan { get; set; }
+        public string Rg { get; set; }
+        public string RgEmitterOrgan { get; set; }
         public DateTime EmissionDate { get; set; }
 
         public override string ToString() {
