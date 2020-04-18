@@ -2,7 +2,7 @@ using System.Linq;
 using ITDeveloper.Data.ORM;
 using Microsoft.EntityFrameworkCore;
 
-namespace ITDeveloper.Mvc.Extencions.ViewComponents.Helpers {
+namespace ITDeveloper.Mvc.Extensions.ViewComponents.Helpers {
     public static class Util {
         public static int ToReg(ITDeveloperDbContext cxt) {
             return cxt.Patients.AsNoTracking().Count();

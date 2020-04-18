@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
 using ITDeveloper.Data.ORM;
-using ITDeveloper.Mvc.Extencions.ViewComponents.Helpers;
+using ITDeveloper.Mvc.Extensions.ViewComponents.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ITDeveloper.Mvc.Extencions.ViewComponents.PatitentState {
+namespace ITDeveloper.Mvc.Extensions.ViewComponents.PatitentState {
     [ViewComponent(Name = "SeriousState")]
     public class SeriousStateViewComponent : ViewComponent {
         private readonly ITDeveloperDbContext _context;

@@ -1,4 +1,4 @@
-namespace ITDeveloper.Mvc.Extencions.ViewComponents.Helpers {
+namespace ITDeveloper.Mvc.Extensions.ViewComponents.Helpers {
     public class PatientStateData {
         public int Partial { get; set; }
         public string Percent { get; set; }
