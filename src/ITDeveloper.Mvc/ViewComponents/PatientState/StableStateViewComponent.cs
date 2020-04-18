@@ -1,16 +1,20 @@
 using System.Threading.Tasks;
+using ITDeveloper.Data.ORM;
 using ITDeveloper.Mvc.ViewComponents.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ITDeveloper.Mvc.ViewComponents.PatitentState {
     [ViewComponent(Name = "StableState")]
     public class StableStateViewComponent : ViewComponent {
-        public StableStateViewComponent() {
-
+        private readonly ITDeveloperDbContext _context;
+        public StableStateViewComponent(ITDeveloperDbContext context) {
+            _context = context;
         }
+
         public async Task<IViewComponentResult> InvokeAsync() {
-            var total = Util.ToReg();
-            var totalState = Util.GetRegByState();
+            var total = Util.ToReg(_context);
+            var totalState = Util.GetRegByState(_context, "Estável");
+
             var progress = (totalState * 100) / total;
             var percent = progress.ToString(format: "F1");
             var model = new PatientStateData {
