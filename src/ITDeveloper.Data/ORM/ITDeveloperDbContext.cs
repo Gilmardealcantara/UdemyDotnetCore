@@ -21,14 +21,14 @@ namespace ITDeveloper.Data.ORM {
                     .Where(p => p.ClrType == typeof(string)));
 
             foreach (var property in allStringDbProperies) {
-                property.Relational().ColumnType = "varchar(100)";
+                property.SetColumnType("varchar(100)");
             }
 
-            builder.ApplyConfiguration(new PatientMap());
-            builder.ApplyConfiguration(new PatientStateMap());
+            // builder.ApplyConfiguration(new PatientMap());
+            // builder.ApplyConfiguration(new PatientStateMap());
 
             // Get all maps
-            // builder.ApplyConfigurationsFromAssembly(typeof(ITDeveloperDbContext).Assembly);
+            builder.ApplyConfigurationsFromAssembly(typeof(ITDeveloperDbContext).Assembly);
 
             // Set Security Delte Behavior
             foreach (var relationship in builder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys())) {

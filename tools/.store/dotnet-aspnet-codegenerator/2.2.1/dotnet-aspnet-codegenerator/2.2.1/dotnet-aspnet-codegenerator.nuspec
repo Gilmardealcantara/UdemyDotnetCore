@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>dotnet-aspnet-codegenerator</id>
+    <version>2.2.1</version>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <licenseUrl>https://raw.githubusercontent.com/aspnet/AspNetCore/2.0.0/LICENSE.txt</licenseUrl>
+    <projectUrl>https://asp.net/</projectUrl>
+    <iconUrl>https://go.microsoft.com/fwlink/?LinkID=288859</iconUrl>
+    <description>Code Generation tool for ASP.NET Core. Contains the dotnet-aspnet-codegenerator command used for generating controllers and views. 
+
+This package was built from the source code at https://github.com/aspnet/scaffolding/tree/a8a3c4d6bcef48a3dd464d03f629a0a18dbf3110</description>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <tags>dotnet aspnet-codegenerator</tags>
+    <serviceable>true</serviceable>
+    <packageTypes>
+      <packageType name="DotnetTool" />
+    </packageTypes>
+    <repository type="git" url="https://github.com/aspnet/scaffolding" commit="a8a3c4d6bcef48a3dd464d03f629a0a18dbf3110" />
+  </metadata>
+</package>
