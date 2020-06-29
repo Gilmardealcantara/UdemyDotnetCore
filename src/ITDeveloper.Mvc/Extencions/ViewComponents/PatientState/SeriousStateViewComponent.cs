@@ -3,21 +3,26 @@ using ITDeveloper.Data.ORM;
 using ITDeveloper.Mvc.Extensions.ViewComponents.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ITDeveloper.Mvc.Extensions.ViewComponents.PatitentState {
+namespace ITDeveloper.Mvc.Extensions.ViewComponents.PatitentState
+{
     [ViewComponent(Name = "SeriousState")]
-    public class SeriousStateViewComponent : ViewComponent {
+    public class SeriousStateViewComponent : ViewComponent
+    {
         private readonly ITDeveloperDbContext _context;
-        public SeriousStateViewComponent(ITDeveloperDbContext context) {
+        public SeriousStateViewComponent(ITDeveloperDbContext context)
+        {
             _context = context;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync() {
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
             var total = await Util.ToReg(_context);
             var totalState = await Util.GetRegByState(_context, "Grave");
 
-            var progress = (totalState * 100) / total;
+            var progress = (totalState * 100) / (total != 0 ? total : 1);
             var percent = progress.ToString(format: "F1");
-            var model = new PatientStateData {
+            var model = new PatientStateData
+            {
                 Title = "Paciente Grave",
                 Partial = (int)totalState,
                 Percent = percent,

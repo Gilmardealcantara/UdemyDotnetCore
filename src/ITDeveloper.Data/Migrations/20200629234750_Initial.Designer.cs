@@ -3,34 +3,32 @@ using System;
 using ITDeveloper.Data.ORM;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ITDeveloper.Data.Migrations
 {
     [DbContext(typeof(ITDeveloperDbContext))]
-    [Migration("20200418233719_UpdateModeCreating")]
-    partial class UpdateModeCreating
+    [Migration("20200629234750_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "3.1.0");
 
             modelBuilder.Entity("ITDeveloper.Domain.Entitites.Mural", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Author")
                         .HasColumnType("varchar(100)");
 
-                    b.Property<DateTime>("Date");
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
                         .HasColumnType("varchar(100)");
@@ -49,11 +47,14 @@ namespace ITDeveloper.Data.Migrations
             modelBuilder.Entity("ITDeveloper.Domain.Entitites.Patient", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
 
-                    b.Property<bool>("Active");
+                    b.Property<bool>("Active")
+                        .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("BirthDate");
+                    b.Property<DateTime>("BirthDate")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Cpf")
                         .IsRequired()
@@ -67,9 +68,11 @@ namespace ITDeveloper.Data.Migrations
                         .HasColumnName("Email")
                         .HasColumnType("varchar(150)");
 
-                    b.Property<DateTime>("EmissionDate");
+                    b.Property<DateTime>("EmissionDate")
+                        .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("HospitalizationDate");
+                    b.Property<DateTime>("HospitalizationDate")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -85,9 +88,11 @@ namespace ITDeveloper.Data.Migrations
                         .HasColumnName("RgEmitterOrgan")
                         .HasColumnType("varchar(10)");
 
-                    b.Property<Guid>("StateId");
+                    b.Property<Guid>("StateId")
+                        .HasColumnType("TEXT");
 
-                    b.Property<int>("type");
+                    b.Property<int>("type")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
@@ -99,7 +104,8 @@ namespace ITDeveloper.Data.Migrations
             modelBuilder.Entity("ITDeveloper.Domain.Entitites.PatientState", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -116,7 +122,8 @@ namespace ITDeveloper.Data.Migrations
                 {
                     b.HasOne("ITDeveloper.Domain.Entitites.PatientState", "State")
                         .WithMany("Patients")
-                        .HasForeignKey("StateId");
+                        .HasForeignKey("StateId")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
